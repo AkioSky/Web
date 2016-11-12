@@ -1,2 +1,4 @@
 Smarty
 ================
+
+Smarty Development History

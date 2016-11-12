@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="2.5" type="plugin" group="vmcustom" method="upgrade">
+    <name>VM - Custom, Number input</name>
+	<author>Daycounts.com</author>
+	<authorEmail>info@daycounts.com</authorEmail>
+	<authorUrl>http://www.daycounts.com</authorUrl>
+	<creationDate>Nov. 2014</creationDate>
+	<copyright>2010 Daycounts.com</copyright>
+    <version>1.2.0</version>
+    <description>Number input plugin for product</description>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_vmcustom_numberinput.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_vmcustom_numberinput.sys.ini</language>
+    </languages>
+    <files>
+        <filename plugin="numberinput">numberinput.php</filename>
+        <folder>numberinput</folder>
+        <folder>language</folder>
+        <folder>elements</folder>
+        <folder>custom</folder>
+    </files>
+    <params addpath="/administrator/components/com_virtuemart/elements">
+        <param type="vmjpluginwarning" />
+        <param name="default_value" type="text"  size="15"  default="0" label="VMCUSTOM_NUMBERINPUT_DEFAULT_VALUE" description="VMCUSTOM_NUMBERINPUT_DEFAULT_VALUE_TIP" />
+        <param name="min_value" type="text"  size="15"  default="0" label="VMCUSTOM_NUMBERINPUT_MIN_VALUE" description="VMCUSTOM_NUMBERINPUT_MIN_VALUE_TIP" />
+        <param name="max_value" type="text"  size="15"  default="0" label="VMCUSTOM_NUMBERINPUT_MAX_VALUE" description="VMCUSTOM_NUMBERINPUT_MAX_VALUE_TIP" />
+        <param name="numeric_type" type="list"  default="int" label="VMCUSTOM_NUMBERINPUT_NUMERIC_TYPE" >
+			<option value="int">VMCUSTOM_NUMBERINPUT_NUMERIC_TYPE_INT</option>
+			<option value="dec">VMCUSTOM_NUMBERINPUT_NUMERIC_TYPE_DEC</option>
+		</param>
+        <param name="custom_price_by_value" type="list"  default="1" label="VMCUSTOM_NUMBERINPUT_PRICE_BY_VALUE_OR_INPUT" description="VMCUSTOM_NUMBERINPUT_PRICE_BY_VALUE_OR_INPUT_TIP" >
+			<option value="0">VMCUSTOM_NUMBERINPUT_PRICE_BY_INPUT</option>
+			<option value="1">VMCUSTOM_NUMBERINPUT_PRICE_BY_VALUE</option>
+			<option value="2">VMCUSTOM_NUMBERINPUT_PRICE_FOR_VALUE_RANGE</option>
+			<option value="3">VMCUSTOM_NUMBERINPUT_PRICE_TIMES_VALUE_RANGE</option>
+			<option value="4">VMCUSTOM_NUMBERINPUT_CUSTOM_FUNCTION</option>
+		</param>
+        <param name="range_values" type="text" size="50"  default="" label="VMCUSTOM_NUMBERINPUT_RANGE_VALUES" description="VMCUSTOM_NUMBERINPUT_RANGE_VALUES_TIP" />
+        <param name="custom_function" type="text" size="50"  default="" label="VMCUSTOM_NUMBERINPUT_CUSTOM_FUNCTION" description="VMCUSTOM_NUMBERINPUT_CUSTOM_FUNCTION_TIP" />
+    </params>
+	<config>
+		<fields name="params" addfieldpath="/plugins/vmcustom/numberinput/elements">
+			<fieldset name="basic">
+				<field type="title" default="PLG_DAYCOUNTS_VERSION" />
+				<field type="versioncheck" name="vm2finalize" versioncat="34" label="PLG_DAYCOUNTS_VERSION" pluginfolder="vmcustom" pluginname="numberinput" />
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+		<server type="extension" priority="1" name="VM2 Number custom field"><![CDATA[http://www.daycounts.com/index.php?option=com_versions&catid=34&task=updateserver.xml]]></server>
+	</updateservers>
+</extension>
